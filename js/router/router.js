@@ -18,16 +18,5 @@ function handleRoute() {
         return;
     }
 
-    // ["products"]
-    if(segments[0] === "products") {
-        if(segments.length === 2) {
-            productsController(segments[1]);
-            return;
-        } else {
-            productController(segments[2]);
-            return;
-        }
-    }
-
     document.querySelector("#root").innerHTML = `<h1 class="text-2xl font-bold">Side ikke fundet</h1>`;
 }
