@@ -18,5 +18,7 @@ function handleRoute() {
         return;
     }
 
+    
+
     document.querySelector("#root").innerHTML = `<h1 class="text-2xl font-bold">Side ikke fundet</h1>`;
 }
