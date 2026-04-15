@@ -1,4 +1,4 @@
-// Paragraph Atom
+// Paragraph Atom.
 export const Paragraph = (className = '') => {
     const element = document.createElement('p')
     element.className = className
