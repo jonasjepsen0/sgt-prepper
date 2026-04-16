@@ -37,3 +37,11 @@ export const Link = (href, className = "") => {
     element.href = href
     return element
 }
+
+export const Image = (src, title, className = "") => {
+    const element = document.createElement("img")
+    element.src = src
+    element.className = className
+    element.alt = title
+    return element
+}

@@ -5,5 +5,5 @@ export const productsController = async category_slug => {
 
     const data = await getProductList(category_slug)
     
-    productsView(data)
+    productsView(data, category_slug)
 }
