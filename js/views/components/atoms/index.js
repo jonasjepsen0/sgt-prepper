@@ -30,3 +30,10 @@ export const Li = (className = "") => {
     element.className = className
     return element
 }
+
+export const Link = (href, className = "") => {
+    const element = document.createElement("a")
+    element.className = className
+    element.href = href
+    return element
+}
