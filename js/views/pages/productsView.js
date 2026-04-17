@@ -22,15 +22,25 @@ export const productsView = (products, category_slug) => {
         const img = Image(`http://localhost:4000${imageUrl}`, name, "w-[80px] h-auto rounded")
         img.loading = "lazy"
         imageCol.append(img)
-        link.append(imageCol)
+        
 
+        const priceCol = Div('shrink-0 w-[96px] text-right')
+        const priceElm = Paragraph(price, 'mb-2 font-bold')
+
+        const stockCol = Div("text-right")
+        const inStockElm = Paragraph(stock, "mb-2 font-bold")
+        
         const infoCol = Div("flex-1 min-w-0")
         const header = Heading(3, name, "font-bold truncate")
-        const teaserElm = Paragraph()
-        teaserElm.innerText = teaser
-
+        const teaserElm = Paragraph(teaser)
+        
         infoCol.append(header, teaserElm)
-        link.append(infoCol)
+        
+        priceCol.append(priceElm)
+
+        stockCol.append(inStockElm)
+
+        link.append(imageCol, infoCol, priceCol, stockCol)
 
         card.append(link)
 

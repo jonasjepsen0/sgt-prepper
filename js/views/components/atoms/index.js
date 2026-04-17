@@ -1,6 +1,7 @@
-// Paragraph Atom.
-export const Paragraph = (className = '') => {
+
+export const Paragraph = (text = "", className = '') => {
     const element = document.createElement('p')
+    element.textContent = text
     element.className = className
     return element
 }
@@ -11,7 +12,6 @@ export const Div = (className = "") => {
     return element
 }
 
-// Heading Atom
 export const Heading = (num, text, className = '') => {
     const element = document.createElement(`h${num}`)
     element.className = className

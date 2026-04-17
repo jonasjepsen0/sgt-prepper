@@ -15,3 +15,7 @@ export const price2Dkk = value => {
     currencyDisplay: 'code'
   }).format(value);
 } 
+
+export const stockStatus = function inStock(stock) {
+  return stock >= 1 ? "In stock" : "Out of stock";
+}
