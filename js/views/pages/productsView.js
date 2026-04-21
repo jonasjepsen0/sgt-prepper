@@ -28,7 +28,7 @@ export const productsView = (products, category_slug) => {
         const priceElm = Paragraph(price, 'mb-2 font-bold')
 
         const stockCol = Div("text-right")
-        const inStockElm = Paragraph(stock, "mb-2 font-bold")
+        const inStockElm = Paragraph(stock, "mb-2 font-bold text-green-500")
         
         const infoCol = Div("flex-1 min-w-0")
         const header = Heading(3, name, "font-bold truncate")

@@ -1,7 +1,7 @@
 
 export const Paragraph = (text = "", className = '') => {
     const element = document.createElement('p')
-    element.textContent = text
+    element.innerHTML = text
     element.className = className
     return element
 }
