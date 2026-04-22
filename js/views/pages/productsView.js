@@ -16,7 +16,11 @@ export const productsView = (products, category_slug) => {
 
         const card = Div("p-4 border rounded-lg mb-4 shadow-md")
 
-        const link = Link(`/index.htm#/produkter/${category_slug}/${slug}`, "flex items-center gap-4 min-w-0")
+        const link = Link(
+            `/index.htm#/produkter/${category_slug}/${slug}`,
+            "flex items-center gap-4 min-w-0",
+            "klik_paa_produkt"
+        )
 
         const imageCol = Div("shrink-0 w-[120px]")
         const img = Image(`http://localhost:4000${imageUrl}`, name, "w-[80px] h-auto rounded")

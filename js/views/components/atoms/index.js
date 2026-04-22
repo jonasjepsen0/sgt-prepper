@@ -31,10 +31,16 @@ export const Li = (className = "") => {
     return element
 }
 
-export const Link = (href, className = "") => {
+export const Link = (href, className = "", eventName = "link_click") => {
     const element = document.createElement("a")
     element.className = className
     element.href = href
+    element.addEventListener("click", () => {
+        gtag("event", eventName, {
+            link_url: href,
+            link_class: className
+        })
+    })
     return element
 }
 
