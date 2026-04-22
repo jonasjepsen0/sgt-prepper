@@ -13,7 +13,7 @@ function handleRoute() {
     const hash = window.location.hash || "#/";
     const cleanHash = hash.replace(/^#\/?/, "")
     const segments = cleanHash.split("/").filter(Boolean)
-    //console.log(segments);
+    console.log(segments);
     
 
     if (segments.length === 0) {
@@ -22,9 +22,13 @@ function handleRoute() {
     }
 
     if(segments[0] === "produkter"){
-        productsController(segments[1])
-        
-        return;
+        if(segments.length === 2) {
+            productsController(segments[1])   
+            return;
+        } else {
+            productsController(segments[2])
+            return
+        }
     }
     
 
