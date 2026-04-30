@@ -1,6 +1,8 @@
 import { homeController } from "../controllers/homeController.js";
 import { clearMain } from "../utils/index.js";
 import { productsController } from "../controllers/productsController.js";
+import { productController } from "../controllers/productController.js";
+import { loginController } from "../controllers/loginController.js";
 
 export function initRouter() {
     window.addEventListener("hashchange", handleRoute);
@@ -21,12 +23,17 @@ function handleRoute() {
         return;
     }
 
+    if (segments[0] === "login") {
+        loginController()
+        return;
+    }
+
     if(segments[0] === "produkter"){
         if(segments.length === 2) {
-            productsController(segments[1])   
+            productsController(segments[1])
             return;
         } else {
-            productsController(segments[2])
+            productController(segments[2])
             return
         }
     }

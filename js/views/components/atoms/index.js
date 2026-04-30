@@ -51,3 +51,32 @@ export const Image = (src, title, className = "") => {
     element.alt = title
     return element
 }
+
+export const Button = (text, className = "") => {
+    const element = document.createElement("button")
+    element.className = className
+    element.innerText = text
+    return element
+}
+
+export const Input = (type = "text", name = "", className = "") => {
+    const element = document.createElement("input")
+    element.type = type
+    element.name = name
+    element.className = className
+    return element
+}
+
+export const Label = (text, htmlFor = "", className = "") => {
+    const element = document.createElement("label")
+    element.htmlFor = htmlFor
+    element.innerText = text
+    element.className = className
+    return element
+}
+
+export const Form = (className = "") => {
+    const element = document.createElement("form")
+    element.className = className
+    return element
+}
