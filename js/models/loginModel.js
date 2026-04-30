@@ -1,6 +1,6 @@
 import { request } from "../utils/http.js"
 
-export const authenticate = async (username, password) => {
+export const Authenticate = async (username, password) => {
     try {
         const data = await request("http://localhost:4000/api/auth/login", "POST", { username, password })
         return data

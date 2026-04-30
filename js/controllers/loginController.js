@@ -1,11 +1,15 @@
-import { setToken } from "../utils/token.js"
+import { Authenticate } from "../models/loginModel.js"
+import { setCookie } from "../utils/cookies.js"
 import { loginView } from "../views/pages/loginView.js"
 
 export const loginController = () => {
-    loginView((username, password) => {
-        const payload = btoa(JSON.stringify({ exp: 9999999999, username }))
-        const fakeToken = `header.${payload}.signature`
-        setToken({ accessToken: fakeToken, refreshToken: fakeToken })
-        window.location.href = "/index.htm"
+    loginView(async (username, password) => {
+        try {
+            const data = await Authenticate(username, password)
+            setCookie('sgtprepper_token', JSON.stringify(data))
+            location.href = "/index.htm"
+        } catch (error) {
+            console.log(error)
+        }
     })
 }
