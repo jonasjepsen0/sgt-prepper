@@ -10,9 +10,11 @@ const renderHeader = () => {
     header.append(titleLink)
 
     if (isLoggedIn()) {
+        const cartLink = Link("/index.htm#/kurv", "bg-slate-500 px-3 py-1 rounded mr-2")
+        cartLink.innerText = "Kurv"
         const logoutBtn = Button("Log ud", "bg-slate-500 px-3 py-1 rounded")
         logoutBtn.addEventListener("click", logout)
-        header.append(logoutBtn)
+        header.append(cartLink, logoutBtn)
     } else {
         const loginLink = Link("/index.htm#/login", "bg-slate-500 px-3 py-1 rounded")
         loginLink.innerText = "Log ind"

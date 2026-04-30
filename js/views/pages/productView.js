@@ -1,9 +1,10 @@
-import { Div, Heading, Image, Paragraph } from "../components/atoms/index.js"
+import { Button, Div, Heading, Image, Paragraph } from "../components/atoms/index.js"
+import { addToCart } from "../../models/cartModel.js"
 
 
 export const productView = product => {
 
-    const { name, imageUrl, teaser, description, price, stock } = product
+    const { id, name, imageUrl, teaser, description, price, stock } = product
 
     const root = document.querySelector("#root")
 
@@ -21,7 +22,22 @@ export const productView = product => {
 
     const descElm = Paragraph(description)
 
-    wrapper.append(img, h1, teaserElm, priceElm, stockElm, descElm)
+    const cartBtn = Button("Læg i kurv", "bg-slate-700 text-white px-3 py-2 rounded w-fit")
+
+    const status = Paragraph("", "text-green-600")
+
+    cartBtn.addEventListener("click", async () => {
+        try {
+            await addToCart(id, 1)
+            status.innerText = "Tilføjet til kurv"
+            status.className = "text-green-600"
+        } catch {
+            status.innerText = "Kunne ikke tilføje til kurv"
+            status.className = "text-red-500"
+        }
+    })
+
+    wrapper.append(img, h1, teaserElm, priceElm, stockElm, descElm, cartBtn, status)
 
     root.append(wrapper)
 }

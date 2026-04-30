@@ -3,6 +3,7 @@ import { clearMain } from "../utils/index.js";
 import { productsController } from "../controllers/productsController.js";
 import { productController } from "../controllers/productController.js";
 import { loginController } from "../controllers/loginController.js";
+import { cartController } from "../controllers/cartController.js";
 
 export function initRouter() {
     window.addEventListener("hashchange", handleRoute);
@@ -25,6 +26,11 @@ function handleRoute() {
 
     if (segments[0] === "login") {
         loginController()
+        return;
+    }
+
+    if (segments[0] === "kurv") {
+        cartController()
         return;
     }
 
